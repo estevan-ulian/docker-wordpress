@@ -29,7 +29,7 @@ services:
       PMA_PORT: 3306
       MYSQL_ROOT_PASSWORD: "${DATABASE_ROOT_PASSWORD}"
     ports:
-      - "8081:80"
+      - "8001:80"
     networks:
       - internal
 
@@ -37,7 +37,7 @@ services:
     depends_on:
       - database
     container_name: ${CONTAINER_NAME}-wordpress
-    image: wordpress:6.5.2-apache
+    image: wordpress:php7.4-apache
     restart: unless-stopped
     env_file: .env
     environment:
